@@ -4,8 +4,16 @@
 }
 
 header {
+  height: 7rem;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+  text-align: center;
+}
+header h1 {
+  color: rgb(36, 5, 211);
+  padding-top: 35px;
   height: 3rem;
   background-color: gray;
+
 }
 
 aside {
@@ -60,3 +68,4 @@ main {
 .highlight-grid-item {
   background-color: rgb(250, 250, 150);
 }
+
