@@ -11,6 +11,9 @@ header {
 header h1 {
   color: rgb(36, 5, 211);
   padding-top: 35px;
+  height: 3rem;
+  background-color: gray;
+
 }
 
 aside {
@@ -24,3 +27,25 @@ main {
   background-color: aquamarine;
   height: 100vh;
 }
+
+.welcomeDiv {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.localTime {
+  font-size: 45px;
+}
+
+.dayToday {
+  font-size: 30px;
+}
+
+.date {
+  font-size: 30px;
+}
+
