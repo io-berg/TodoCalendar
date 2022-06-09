@@ -20,6 +20,27 @@ main {
 	height: 100vh;
 }
 
+.welcomeDiv {
+	height: 10rem;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	flex-direction: column;
+	font-weight: bold;
+}
+
+.localTime {
+	font-size: 45px;
+}
+
+.dayToday {
+	font-size: 30px;
+}
+
+.date {
+	font-size: 30px;
+}
+
 /* CALENDER STYLES */
 .calenderContainer {
 	display: grid;
