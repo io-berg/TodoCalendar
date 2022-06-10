@@ -13,7 +13,6 @@ header h1 {
   padding-top: 35px;
   height: 3rem;
   background-color: gray;
-
 }
 
 aside {
@@ -69,3 +68,29 @@ main {
   background-color: rgb(250, 250, 150);
 }
 
+/* ToDo */
+
+.todocontainer {
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-block {
+  display: none;
+  top: 5rem;
+}
+
+.todoheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #00aaff;
+  height: 2rem;
+}
+.addTodo-button {
+  font-size: 28px;
+}
