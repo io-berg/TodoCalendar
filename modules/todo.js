@@ -14,18 +14,19 @@ function addTodos() {
 
   todos.push(todo);
   console.log(todos);
-  hide();
+  toggleTodoForm();
 }
 
-function show() {
-  document.getElementById("input-block").style.display = "block";
-}
+let todoFormVisible = false;
 
-function hide() {
-  document.getElementById("input-block").style.display = "none";
+function toggleTodoForm() {
+  todoFormVisible = !todoFormVisible;
+  let displayStyle = todoFormVisible ? "block" : "none";
+
+  document.getElementById("input-block").style.display = displayStyle;
 }
 
 const addButton = document.getElementById("addTodo-button");
-addButton.addEventListener("click", show);
+addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("createTodo-button");
 createTodoButton.addEventListener("click", addTodos);
