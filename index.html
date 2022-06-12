@@ -5,10 +5,15 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="styles/desktop.css" />
     <link rel="stylesheet" href="styles/mobile.css" />
     <script defer src="modules/Welcome.js"></script>
     <script type="module" defer src="main.js"></script>
+    <script defer src="modules/todo.js"></script>
   </head>
   <body>
     <header>
@@ -20,7 +25,23 @@
         <p class="dayToday"></p>
         <p class="date"></p>
       </div>
-      <div class="todoContainer"></div>
+      <div class="todoContainer">
+        <div class="todoheader">
+          <h4>Lägg till ny aktivitet</h4>
+          <i id="addTodo-button" class="material-icons addTodo-button"
+            >add_box</i
+          >
+        </div>
+        <div id="input-block" class="input-block">
+          <label for="title">Titel:</label>
+          <input id="title" type="text" /><br />
+          <label for="description">Beskrivning:</label>
+          <textarea id="description" rows="10" cols="30"></textarea><br />
+          <label for="date">Datum: </label>
+          <input id="date" type="date" />
+          <button id="createTodo-button">Skapa</button>
+        </div>
+      </div>
     </aside>
     <main>
       <div class="calenderHeader"></div>
