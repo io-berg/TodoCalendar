@@ -93,4 +93,5 @@ main {
 }
 .addTodo-button {
   font-size: 28px;
+  cursor: pointer;
 }
