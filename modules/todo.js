@@ -4,7 +4,6 @@ function addTodos() {
   const inputTitle = document.getElementById("title").value;
   const inputDescription = document.getElementById("description").value;
   const inputDate = document.getElementById("date").value;
-  console.log(inputTitle);
 
   const todo = {
     titel: inputTitle,
