@@ -13,7 +13,6 @@ function addTodos() {
   };
 
   todos.push(todo);
-  console.log(todos);
   toggleTodoForm();
 }
 
