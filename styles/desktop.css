@@ -11,8 +11,44 @@ header {
 header h1 {
   color: rgb(36, 5, 211);
   padding-top: 35px;
+}
+.underrubrik {
+  height: 75px;
+  background-color: lightblue;
+  line-height: 75px;
+}
+.underrubrik .pilar {
+  color: white;
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 40px;
+}
+.månad h1 {
+  color: black;
+  font-size: 40px;
+  padding: 5px 25px 5px 25px;
+}
+
+.underrubrik ul li {
+  list-style: none;
+  color: black;
+  font-size: 20px;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: 10px;
+}
+.underrubrik .mån {
+  margin-left: 150px;
+  height: 7rem;
+  text-align: center;
+}
+header h1 {
+  color: rgb(36, 5, 211);
+  padding-top: 35px;
   height: 3rem;
-  background-color: gray;
 }
 
 aside {
