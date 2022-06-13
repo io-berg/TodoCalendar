@@ -1,3 +1,5 @@
+import { renderCalender } from "./calender.js";
+
 const todos = [];
 
 function addTodos() {
@@ -8,11 +10,12 @@ function addTodos() {
   const todo = {
     titel: inputTitle,
     description: inputDescription,
-    date: inputDate,
+    date: new Date(inputDate),
   };
 
   todos.push(todo);
   toggleTodoForm();
+  renderCalender();
 }
 
 let todoFormVisible = false;
@@ -28,3 +31,9 @@ const addButton = document.getElementById("addTodo-button");
 addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("createTodo-button");
 createTodoButton.addEventListener("click", addTodos);
+
+function getTodos() {
+  return todos;
+}
+
+export { getTodos };
