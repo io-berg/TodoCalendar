@@ -38,6 +38,15 @@ header {
 }
 .underrubrik .mån {
   margin-left: 150px;
+  height: 7rem;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+  text-align: center;
+}
+header h1 {
+  color: rgb(36, 5, 211);
+  padding-top: 35px;
+  height: 3rem;
+  background-color: gray;
 }
 
 aside {
@@ -51,3 +60,74 @@ main {
   background-color: aquamarine;
   height: 100vh;
 }
+
+.welcomeDiv {
+  height: 10rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  font-weight: bold;
+}
+
+.localTime {
+  font-size: 45px;
+}
+
+.dayToday {
+  font-size: 30px;
+}
+
+.date {
+  font-size: 30px;
+}
+
+/* CALENDER STYLES */
+.calenderContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+}
+
+.grid-item {
+  background-color: rgb(228, 228, 228);
+  border: 1px solid rgb(0, 0, 0);
+  height: 6rem;
+}
+
+.current-month-item {
+  background-color: white;
+}
+
+.highlight-grid-item {
+  background-color: rgb(250, 250, 150);
+}
+
+/* ToDo */
+
+.todocontainer {
+  height: 20rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.input-block {
+  display: none;
+  top: 5rem;
+  flex-direction: column;
+}
+
+.todoheader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  background: #00aaff;
+  height: 2rem;
+}
+.addTodo-button {
+  font-size: 28px;
+  cursor: pointer;
+}
+

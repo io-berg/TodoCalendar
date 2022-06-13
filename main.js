@@ -1,18 +1,3 @@
-const date = new Date();
+import { getSelectedDate, renderCalender } from "./modules/calender.js";
 
-const months = [
-  "Januari",
-  "Februari",
-  "Mars",
-  "April",
-  "Maj",
-  "Juni",
-  "Juli",
-  "Augusti",
-  "September",
-  "Oktober",
-  "November",
-  "December",
-];
-
-document.querySelector(".månad h1").innerHTML = months[date.getMonth()];
+renderCalender();
