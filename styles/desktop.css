@@ -4,10 +4,14 @@
 }
 
 header {
-  height: 3rem;
-  background-color: gray;
+  height: 7rem;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+  text-align: center;
 }
-
+header h1 {
+  color: rgb(36, 5, 211);
+  padding-top: 35px;
+}
 .underrubrik {
   height: 75px;
   background-color: lightblue;
@@ -39,14 +43,12 @@ header {
 .underrubrik .mån {
   margin-left: 150px;
   height: 7rem;
-  background: linear-gradient(to right, #00aaff, #00ff6c);
   text-align: center;
 }
 header h1 {
   color: rgb(36, 5, 211);
   padding-top: 35px;
   height: 3rem;
-  background-color: gray;
 }
 
 aside {
@@ -130,4 +132,3 @@ main {
   font-size: 28px;
   cursor: pointer;
 }
-
