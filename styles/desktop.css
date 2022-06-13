@@ -1,22 +1,53 @@
 * {
-    padding: 0;
-    margin: 0;
+  padding: 0;
+  margin: 0;
 }
 
-
 header {
-    height: 3rem;
-    background-color: gray;
+  height: 3rem;
+  background-color: gray;
+}
+
+.underrubrik {
+  height: 75px;
+  background-color: lightblue;
+  line-height: 75px;
+}
+.underrubrik .pilar {
+  color: white;
+  font-size: 40px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-left: 40px;
+}
+.månad h1 {
+  color: black;
+  font-size: 40px;
+  padding: 5px 25px 5px 25px;
+}
+
+.underrubrik ul li {
+  list-style: none;
+  color: black;
+  font-size: 20px;
+  display: inline-flex;
+  justify-content: space-between;
+  flex-direction: row;
+  margin-left: 10px;
+}
+.underrubrik .mån {
+  margin-left: 150px;
 }
 
 aside {
-    width: 20rem;
-    height: 100vh;
-    background-color: #f5f5f5;
-    float: left;
+  width: 20rem;
+  height: 100vh;
+  background-color: #f5f5f5;
+  float: left;
 }
 
 main {
-    background-color: aquamarine;
-    height: 100vh;
+  background-color: aquamarine;
+  height: 100vh;
 }
