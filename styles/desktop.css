@@ -147,6 +147,11 @@ main {
   cursor: pointer;
 }
 
+.todoListContainer {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
 .todoListDiv {
   display: flex;
   flex-direction: column;
