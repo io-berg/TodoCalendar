@@ -18,6 +18,14 @@ function addTodos() {
   toggleTodoForm();
   renderCalender();
 }
+/*
+function removeTodo(titel) {
+  const id = todos.findIndex(this.titel == titel);
+  todos.splice(id, 1);
+}*/
+
+//const removeButton = document.getElementById("removeButton");
+//removeButton.addEventListener("click", removeTodo(id));
 
 let todoFormVisible = false;
 
