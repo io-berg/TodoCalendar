@@ -1,6 +1,24 @@
 import { getTodos } from "./todo.js";
 
 const calender = document.getElementById("calender");
+const monthText = document.getElementById("month-text");
+const nextMonthBtn = document.getElementById("next-month");
+nextMonthBtn.addEventListener("click", () => {
+  month.setMonth(month.getMonth() + 1);
+  renderCalenderMonth();
+  renderCalender();
+});
+
+const prevMonthBtn = document.getElementById("prev-month");
+prevMonthBtn.addEventListener("click", () => {
+  month.setMonth(month.getMonth() - 1);
+  renderCalenderMonth();
+  renderCalender();
+});
+
+function renderCalenderMonth() {
+  monthText.innerText = months[month.getMonth()];
+}
 
 let selectedDate;
 let month = new Date();
@@ -112,4 +130,4 @@ function getSelectedDate() {
   return selectedDate;
 }
 
-export { renderCalender, getSelectedDate };
+export { renderCalender, getSelectedDate, renderCalenderMonth };
