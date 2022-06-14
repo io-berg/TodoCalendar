@@ -37,8 +37,10 @@ function renderTodoList() {
   for (const todo of todos) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todoListDiv");
+
     for (const key of Object.keys(todo)) {
       const todoTextField = document.createElement("p");
+
       if (key == "description") {
         const todoTextFieldValue = document.createElement("p");
         todoTextField.innerHTML = `${key}:`;
@@ -54,4 +56,7 @@ function renderTodoList() {
   }
 }
 
-renderTodoList();
+export {
+  renderTodoList
+}
+
