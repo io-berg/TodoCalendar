@@ -14,9 +14,9 @@ function addTodos() {
   };
 
   todos.push(todo);
-  renderTodoList();
+  renderTodoList(getSelectedDate());
   toggleTodoForm();
-  renderCalender(getSelectedDate());
+  renderCalender();
 }
 
 let todoFormVisible = false;
@@ -43,8 +43,13 @@ function renderTodoList(selectedDate) {
     todoArray = filterTodosByDate(isEarlierDate);
     todoArray.sort((a, b) => a.date.getTime() - b.date.getTime());
   }
+
   if (selectedDate) {
-    todoArray = filterTodosByDate(isSameDate);
+    todoArray = todoArray.filter((todo) => {
+      if (isSameDate(todo.date, selectedDate)) {
+        return todo;
+      }
+    });
   }
   for (const todo of todoArray) {
     const todoDiv = document.createElement("div");
@@ -72,10 +77,10 @@ function renderTodoList(selectedDate) {
   }
 }
 
-function filterTodosByDate(dateComparer) {
+function filterTodosByDate() {
   const filteredTodoArray = todos.filter((todo) => {
     const currentTime = new Date();
-    if (dateComparer(todo.date, currentTime)) {
+    if (isEarlierDate(todo.date, currentTime)) {
       return todo;
     }
   });

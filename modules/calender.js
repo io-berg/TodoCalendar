@@ -20,7 +20,7 @@ function renderCalenderMonth() {
   monthText.innerText = months[month.getMonth()];
 }
 
-let selectedDate;
+let selectedDate = null;
 let month = new Date();
 const months = [
   "Januari",
