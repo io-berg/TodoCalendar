@@ -37,10 +37,16 @@ const todoListContainer = document.getElementById("todo-list-container");
 
 function renderTodoList() {
   todoListContainer.innerHTML = "";
-  for (const todo of todos) {
+  let todoArray = [];
+
+  if (todos.length) {
+    todoArray = filterTodosByDate();
+    todoArray.sort((a, b) => a.date.getTime() - b.date.getTime());
+  }
+  for (const todo of todoArray) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todoListDiv");
-
+    console.log(todo);
     for (const key of Object.keys(todo)) {
       const todoTextField = document.createElement("p");
 
@@ -50,6 +56,10 @@ function renderTodoList() {
         todoTextFieldValue.innerHTML = `${todo[key]}`;
         todoDiv.appendChild(todoTextField);
         todoDiv.appendChild(todoTextFieldValue);
+      } else if (key == "date") {
+        todoTextField.innerHTML = `${key}: ${todo[key].getFullYear()}-
+        ${todo[key].getMonth() + 1}-${todo[key].getDate()}`;
+        todoDiv.appendChild(todoTextField);
       } else {
         todoTextField.innerHTML = `${key}: ${todo[key]}`;
         todoDiv.appendChild(todoTextField);
@@ -57,6 +67,25 @@ function renderTodoList() {
     }
     todoListContainer.appendChild(todoDiv);
   }
+}
+
+function filterTodosByDate() {
+  const filteredTodoArray = todos.filter((todo) => {
+    const currentTime = new Date();
+    if (isEarlierDate(todo.date, currentTime)) {
+      return todo;
+    }
+  });
+
+  return filteredTodoArray;
+}
+
+function isEarlierDate(todoDate, currentDate) {
+  return (
+    todoDate.getDate() >= currentDate.getDate() &&
+    todoDate.getMonth() >= currentDate.getMonth() &&
+    todoDate.getFullYear() >= currentDate.getFullYear()
+  );
 }
 
 export { renderTodoList };
