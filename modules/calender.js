@@ -1,3 +1,5 @@
+import { getTodos } from "./todo.js";
+
 const calender = document.getElementById("calender");
 
 let selectedDate;
@@ -31,31 +33,58 @@ function renderCalender() {
       const date = new Date(startDate.getTime());
       date.setDate(startDate.getDate() + i * 7 + j);
 
-      const day = document.createElement("div");
-      day.classList.add("grid-item");
+      const day = buildDayCell(date);
+      addTodos(day, date);
 
-      if (date.getMonth() == month.getMonth()) {
-        day.classList.add("current-month-item");
-      }
-
-      day.addEventListener("click", (e) => selectDate(e));
-
-      if (
-        date.getDate() === selectedDate?.getDate() &&
-        date.getMonth() === selectedDate?.getMonth()
-      ) {
-        day.classList.add("highlight-grid-item");
-      }
-
-      const dayNr = document.createElement("p");
-      dayNr.innerText = date.getDate();
-      dayNr.classList.add("day-nr");
-      day.appendChild(dayNr);
-
-      day.dataset.id = date.getTime();
       calender.appendChild(day);
     }
   }
+}
+
+function buildDayCell(date) {
+  const day = document.createElement("div");
+  day.classList.add("grid-item");
+
+  if (date.getMonth() == month.getMonth()) {
+    day.classList.add("current-month-item");
+  }
+
+  day.addEventListener("click", (e) => selectDate(e));
+
+  if (
+    date.getDate() === selectedDate?.getDate() &&
+    date.getMonth() === selectedDate?.getMonth()
+  ) {
+    day.classList.add("highlight-grid-item");
+  }
+
+  const dayNr = document.createElement("p");
+  dayNr.innerText = date.getDate();
+  dayNr.classList.add("day-nr");
+  dayNr.style.pointerEvents = "none";
+  day.appendChild(dayNr);
+
+  day.dataset.id = date.getTime();
+
+  return day;
+}
+
+function addTodos(day, date) {
+  const todos = getTodos();
+  let todosToday = todos.filter((todo) => isSameDate(todo.date, date));
+
+  if (!todosToday) return;
+
+  const todoElem = document.createElement("p");
+  todoElem.innerText =
+    todosToday.length > 0
+      ? todosToday.length > 1
+        ? todosToday.length + " Todos"
+        : todosToday.length + " Todo"
+      : "";
+  todoElem.classList.add("todo-count");
+  todoElem.style.pointerEvents = "none";
+  day.appendChild(todoElem);
 }
 
 function selectDate(e) {
@@ -71,6 +100,12 @@ function selectDate(e) {
   }
 
   renderCalender();
+}
+
+function isSameDate(date1, date2) {
+  return (
+    date1.getDate() == date2.getDate() && date1.getMonth() == date2.getMonth()
+  );
 }
 
 function getSelectedDate() {
