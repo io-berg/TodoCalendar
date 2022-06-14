@@ -1,3 +1,5 @@
+import { renderCalender } from "./calender.js";
+
 const todos = [];
 
 function addTodos() {
@@ -8,12 +10,13 @@ function addTodos() {
   const todo = {
     titel: inputTitle,
     description: inputDescription,
-    date: inputDate,
+    date: new Date(inputDate),
   };
 
   todos.push(todo);
   renderTodoList();
   toggleTodoForm();
+  renderCalender();
 }
 
 let todoFormVisible = false;
@@ -56,7 +59,10 @@ function renderTodoList() {
   }
 }
 
-export {
-  renderTodoList
+export { renderTodoList };
+
+function getTodos() {
+  return todos;
 }
 
+export { getTodos };
