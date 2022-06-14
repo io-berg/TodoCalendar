@@ -1,3 +1,4 @@
-import { getSelectedDate, renderCalender } from "./modules/calender.js";
+import { getSelectedDate, renderCalender, renderCalenderMonth } from "./modules/calender.js";
 
+renderCalenderMonth();
 renderCalender();
