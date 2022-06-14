@@ -1,4 +1,4 @@
-import { renderCalender } from "./calender.js";
+import { renderCalender, getSelectedDate, isSameDate } from "./calender.js";
 
 const todos = [];
 
@@ -16,7 +16,7 @@ function addTodos() {
   todos.push(todo);
   renderTodoList();
   toggleTodoForm();
-  renderCalender();
+  renderCalender(getSelectedDate());
 }
 
 let todoFormVisible = false;
@@ -35,13 +35,16 @@ createTodoButton.addEventListener("click", addTodos);
 
 const todoListContainer = document.getElementById("todo-list-container");
 
-function renderTodoList() {
+function renderTodoList(selectedDate) {
   todoListContainer.innerHTML = "";
   let todoArray = [];
 
   if (todos.length) {
-    todoArray = filterTodosByDate();
+    todoArray = filterTodosByDate(isEarlierDate);
     todoArray.sort((a, b) => a.date.getTime() - b.date.getTime());
+  }
+  if (selectedDate) {
+    todoArray = filterTodosByDate(isSameDate);
   }
   for (const todo of todoArray) {
     const todoDiv = document.createElement("div");
@@ -69,10 +72,10 @@ function renderTodoList() {
   }
 }
 
-function filterTodosByDate() {
+function filterTodosByDate(dateComparer) {
   const filteredTodoArray = todos.filter((todo) => {
     const currentTime = new Date();
-    if (isEarlierDate(todo.date, currentTime)) {
+    if (dateComparer(todo.date, currentTime)) {
       return todo;
     }
   });
@@ -88,10 +91,8 @@ function isEarlierDate(todoDate, currentDate) {
   );
 }
 
-export { renderTodoList };
-
 function getTodos() {
   return todos;
 }
 
-export { getTodos };
+export { renderTodoList, getTodos };
