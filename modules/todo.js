@@ -1,4 +1,4 @@
-import { renderCalender } from "./calender.js";
+import { renderCalender, getSelectedDate, isSameDate } from "./calender.js";
 
 const todos = [];
 
@@ -8,12 +8,13 @@ function addTodos() {
   const inputDate = document.getElementById("date").value;
 
   const todo = {
-    titel: inputTitle,
+    title: inputTitle,
     description: inputDescription,
     date: new Date(inputDate),
   };
 
   todos.push(todo);
+  renderTodoList(getSelectedDate());
   toggleTodoForm();
   renderCalender();
 }
@@ -32,8 +33,71 @@ addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("createTodo-button");
 createTodoButton.addEventListener("click", addTodos);
 
+const todoListContainer = document.getElementById("todo-list-container");
+
+function renderTodoList(selectedDate) {
+  todoListContainer.innerHTML = "";
+  let todoArray = [];
+
+  if (todos.length) {
+    todoArray = filterTodosByDate(isEarlierDate);
+    todoArray.sort((a, b) => a.date.getTime() - b.date.getTime());
+  }
+
+  if (selectedDate) {
+    todoArray = todoArray.filter((todo) => {
+      if (isSameDate(todo.date, selectedDate)) {
+        return todo;
+      }
+    });
+  }
+  for (const todo of todoArray) {
+    const todoDiv = document.createElement("div");
+    todoDiv.classList.add("todoListDiv");
+    console.log(todo);
+    for (const key of Object.keys(todo)) {
+      const todoTextField = document.createElement("p");
+
+      if (key == "description") {
+        const todoTextFieldValue = document.createElement("p");
+        todoTextField.innerHTML = `${key}:`;
+        todoTextFieldValue.innerHTML = `${todo[key]}`;
+        todoDiv.appendChild(todoTextField);
+        todoDiv.appendChild(todoTextFieldValue);
+      } else if (key == "date") {
+        todoTextField.innerHTML = `${key}: ${todo[key].getFullYear()}-
+        ${todo[key].getMonth() + 1}-${todo[key].getDate()}`;
+        todoDiv.appendChild(todoTextField);
+      } else {
+        todoTextField.innerHTML = `${key}: ${todo[key]}`;
+        todoDiv.appendChild(todoTextField);
+      }
+    }
+    todoListContainer.appendChild(todoDiv);
+  }
+}
+
+function filterTodosByDate() {
+  const filteredTodoArray = todos.filter((todo) => {
+    const currentTime = new Date();
+    if (isEarlierDate(todo.date, currentTime)) {
+      return todo;
+    }
+  });
+
+  return filteredTodoArray;
+}
+
+function isEarlierDate(todoDate, currentDate) {
+  return (
+    todoDate.getDate() >= currentDate.getDate() &&
+    todoDate.getMonth() >= currentDate.getMonth() &&
+    todoDate.getFullYear() >= currentDate.getFullYear()
+  );
+}
+
 function getTodos() {
   return todos;
 }
 
-export { getTodos };
+export { renderTodoList, getTodos };

@@ -80,6 +80,7 @@ main {
   height: 100vh;
 }
 
+/* WELCOME DIV STYLES */
 .welcomeDiv {
   height: 10rem;
   display: flex;
@@ -159,4 +160,18 @@ main {
 .addTodo-button {
   font-size: 28px;
   cursor: pointer;
+}
+
+.todoListContainer {
+  overflow-y: auto;
+  max-height: 50vh;
+}
+
+.todoListDiv {
+  display: flex;
+  flex-direction: column;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
 }

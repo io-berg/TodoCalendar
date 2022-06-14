@@ -1,4 +1,4 @@
-import { getTodos } from "./todo.js";
+import { getTodos, renderTodoList } from "./todo.js";
 
 const calender = document.getElementById("calender");
 const monthText = document.getElementById("month-text");
@@ -20,7 +20,7 @@ function renderCalenderMonth() {
   monthText.innerText = months[month.getMonth()];
 }
 
-let selectedDate;
+let selectedDate = null;
 let month = new Date();
 const months = [
   "Januari",
@@ -117,12 +117,15 @@ function selectDate(e) {
     selectedDate = targetDate;
   }
 
+  renderTodoList(selectedDate);
   renderCalender();
 }
 
 function isSameDate(date1, date2) {
   return (
-    date1.getDate() == date2.getDate() && date1.getMonth() == date2.getMonth()
+    date1.getDate() == date2.getDate() &&
+    date1.getMonth() == date2.getMonth() &&
+    date1.getFullYear() == date2.getFullYear()
   );
 }
 
@@ -130,4 +133,4 @@ function getSelectedDate() {
   return selectedDate;
 }
 
-export { renderCalender, getSelectedDate, renderCalenderMonth };
+export { renderCalender, getSelectedDate, isSameDate, renderCalenderMonth };
