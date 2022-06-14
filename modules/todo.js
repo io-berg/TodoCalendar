@@ -8,7 +8,7 @@ function addTodos() {
   const inputDate = document.getElementById("date").value;
 
   const todo = {
-    titel: inputTitle,
+    title: inputTitle,
     description: inputDescription,
     date: new Date(inputDate),
   };
