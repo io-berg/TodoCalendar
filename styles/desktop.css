@@ -50,6 +50,7 @@ header h1 {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem;
 }
 
 .week-days-full {
@@ -62,7 +63,7 @@ header h1 {
 
 .week-days h3 {
   font-size: 20px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 header h1 {
@@ -123,7 +124,6 @@ main {
   grid-template-rows: repeat(6, 1fr);
   background-color: #ffffff;
   margin: 0.5rem;
-  height: 77vh;
 }
 
 .grid-item {
