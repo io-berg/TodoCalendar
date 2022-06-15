@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+header * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   height: 7rem;
   background: linear-gradient(to right, #00aaff, #00ff6c);
@@ -13,6 +20,20 @@ header {
 
 header h1 {
   color: rgb(36, 5, 211);
+  flex-grow: 2;
+}
+
+label {
+  display: flex;
+  width: 100%;
+}
+
+input,
+textarea {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid rgb(36, 5, 211);
+  border-radius: 0.5rem;
 }
 
 .subheading {
@@ -47,18 +68,6 @@ header h1 {
 .week-days h3 {
   font-size: 20px;
   padding-left: 20px;
-}
-
-header h1 {
-  color: rgb(36, 5, 211);
-  flex-grow: 2;
-}
-
-header * {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
 }
 
 aside {
@@ -152,6 +161,14 @@ main {
   display: none;
   top: 5rem;
   flex-direction: column;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+.input-block button {
+  margin-top: 10px;
 }
 
 .todoheader {

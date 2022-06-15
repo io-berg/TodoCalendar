@@ -25,7 +25,7 @@ let todoFormVisible = false;
 
 function toggleTodoForm() {
   todoFormVisible = !todoFormVisible;
-  let displayStyle = todoFormVisible ? "block" : "none";
+  let displayStyle = todoFormVisible ? "flex" : "none";
 
   document.getElementById("input-block").style.display = displayStyle;
 }
