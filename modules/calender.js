@@ -1,4 +1,5 @@
 import { getTodos, renderTodoList } from "./todo.js";
+import { getDateFact } from "./httpClient.js";
 
 const calender = document.getElementById("calender");
 const monthText = document.getElementById("month-text");
@@ -69,6 +70,10 @@ function buildDayCell(date) {
 
   day.addEventListener("click", (e) => selectDate(e));
 
+  if (date.getDay() == 0) {
+    day.classList.add("weekend-grid-item");
+  }
+
   if (
     date.getDate() === selectedDate?.getDate() &&
     date.getMonth() === selectedDate?.getMonth()
@@ -91,7 +96,7 @@ function addTodos(day, date) {
   const todos = getTodos();
   let todosToday = todos.filter((todo) => isSameDate(todo.date, date));
 
-  if (!todosToday) return;
+  if (!todosToday.length) return;
 
   const todoElem = document.createElement("p");
   todoElem.innerText =
@@ -102,6 +107,7 @@ function addTodos(day, date) {
       : "";
   todoElem.classList.add("todo-count");
   todoElem.style.pointerEvents = "none";
+
   day.appendChild(todoElem);
 }
 
@@ -117,8 +123,21 @@ function selectDate(e) {
     selectedDate = targetDate;
   }
 
+  if (selectedDate) {
+    setDateFact();
+  }
+
   renderTodoList(selectedDate);
   renderCalender();
+}
+
+function setDateFact() {
+  const fact = getDateFact(selectedDate.getMonth() + 1, selectedDate.getDate());
+  fact
+    .then((res) => res.text())
+    .then((data) => {
+      document.getElementById("date-fact").innerText = data;
+    });
 }
 
 function isSameDate(date1, date2) {
