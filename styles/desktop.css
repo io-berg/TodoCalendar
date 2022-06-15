@@ -181,3 +181,8 @@ main {
   border: 1px solid black;
   border-radius: 5px;
 }
+
+.todoListTextTitles {
+  font-size: 16px;
+  font-weight: bold;
+}
