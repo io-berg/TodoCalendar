@@ -14,6 +14,7 @@ function addTodos() {
   };
 
   todos.push(todo);
+  saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
   toggleTodoForm();
   renderCalender();
@@ -99,5 +100,17 @@ function isEarlierDate(todoDate, currentDate) {
 function getTodos() {
   return todos;
 }
+function saveTodosToLocalStorage() {
+  localStorage.setItem("todoArray", JSON.stringify(todos));
+}
 
-export { renderTodoList, getTodos };
+function loadTodosFromLocalStorage() {
+  todos.push(...JSON.parse(localStorage.getItem("todoArray")));
+
+  for (const todo of todos) {
+    const dateFromLS = new Date(todo.date);
+    todo.date = dateFromLS;
+  }
+}
+
+export { renderTodoList, getTodos, loadTodosFromLocalStorage };

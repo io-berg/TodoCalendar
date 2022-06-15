@@ -3,8 +3,9 @@ import {
   renderCalender,
   renderCalenderMonth,
 } from "./modules/calender.js";
-import { renderTodoList } from "./modules/todo.js";
+import { renderTodoList, loadTodosFromLocalStorage } from "./modules/todo.js";
 
+loadTodosFromLocalStorage();
 renderCalenderMonth();
 renderCalender();
 renderTodoList();
