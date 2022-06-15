@@ -124,6 +124,7 @@ main {
   grid-template-rows: repeat(6, 1fr);
   background-color: #ffffff;
   margin: 0.5rem;
+  height: 60vh;
 }
 
 .grid-item {
