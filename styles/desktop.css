@@ -168,6 +168,11 @@ main {
   cursor: pointer;
 }
 
+.todoHeaderDiv {
+  display: flex;
+  justify-content: space-between;
+}
+
 .todoListContainer {
   overflow-y: auto;
   max-height: 50vh;
@@ -185,4 +190,22 @@ main {
 .todoListTextTitles {
   font-size: 16px;
   font-weight: bold;
+}
+
+.editDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.editDiv button {
+  align-self: flex-end;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.editmodeBtnDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }
