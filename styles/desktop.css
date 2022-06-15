@@ -151,6 +151,7 @@ main {
 .input-block {
   display: none;
   top: 5rem;
+  padding: 5px;
   flex-direction: column;
 }
 

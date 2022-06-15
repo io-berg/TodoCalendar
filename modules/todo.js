@@ -19,21 +19,23 @@ function addTodos() {
   toggleTodoForm();
   renderCalender();
 }
-/*
-function removeTodo(titel) {
-  const id = todos.findIndex(this.titel == titel);
-  todos.splice(id, 1);
-}*/
 
-//const removeButton = document.getElementById("removeButton");
-//removeButton.addEventListener("click", removeTodo(id));
+function removeTodo() {
+  const inputTitle = document.getElementById("remove-title").value;
+  //const inputDate = document.getElementById("remove-date").value;
+  const id = todos.indexOf(inputTitle);
+  todos.splice(id, 1);
+  saveTodosToLocalStorage();
+  renderTodoList(getSelectedDate());
+  toggleTodoForm();
+  renderCalender();
+}
 
 let todoFormVisible = false;
 
 function toggleTodoForm() {
   todoFormVisible = !todoFormVisible;
   let displayStyle = todoFormVisible ? "block" : "none";
-
   document.getElementById("input-block").style.display = displayStyle;
 }
 
@@ -41,6 +43,17 @@ const addButton = document.getElementById("addTodo-button");
 addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("createTodo-button");
 createTodoButton.addEventListener("click", addTodos);
+
+function toggleTodoFormRemove() {
+  todoFormVisible = !todoFormVisible;
+  let displayStyle = todoFormVisible ? "block" : "none";
+  document.getElementById("input-block-remove").style.display = displayStyle;
+}
+
+const addRemoveButton = document.getElementById("add-removeTodo-button");
+addRemoveButton.addEventListener("click", toggleTodoFormRemove);
+const removeButton = document.getElementById("removeTodo-button");
+removeButton.addEventListener("click", removeTodo);
 
 const todoListContainer = document.getElementById("todo-list-container");
 
@@ -124,7 +137,7 @@ function saveTodosToLocalStorage() {
 
 function loadTodosFromLocalStorage() {
   if (!localStorage.getItem("todoArray")) return;
-  
+
   todos.push(...JSON.parse(localStorage.getItem("todoArray")));
 
   for (const todo of todos) {
