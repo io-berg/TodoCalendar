@@ -39,14 +39,20 @@ const todoListContainer = document.getElementById("todo-list-container");
 function renderTodoList(selectedDate) {
   todoListContainer.innerHTML = "";
   let todoArray = [];
+  document.getElementById("todo-list-header").innerHTML = "Dina kommande todos";
 
-  if (todos.length) {
+  if (todos.length && !selectedDate) {
     todoArray = filterTodosByDate(isEarlierDate);
     todoArray.sort((a, b) => a.date.getTime() - b.date.getTime());
   }
 
   if (selectedDate) {
-    todoArray = todoArray.filter((todo) => {
+    document.getElementById(
+      "todo-list-header"
+    ).innerHTML = `Dina todos på datum: ${selectedDate.getFullYear()}-${
+      selectedDate.getMonth() + 1
+    }-${selectedDate.getDate()}`;
+    todoArray = todos.filter((todo) => {
       if (isSameDate(todo.date, selectedDate)) {
         return todo;
       }
@@ -55,23 +61,27 @@ function renderTodoList(selectedDate) {
   for (const todo of todoArray) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todoListDiv");
-    console.log(todo);
     for (const key of Object.keys(todo)) {
-      const todoTextField = document.createElement("p");
-
-      if (key == "description") {
-        const todoTextFieldValue = document.createElement("p");
-        todoTextField.innerHTML = `${key}:`;
-        todoTextFieldValue.innerHTML = `${todo[key]}`;
-        todoDiv.appendChild(todoTextField);
+      const todoTextFieldTitle = document.createElement("p");
+      const todoTextFieldValue = document.createElement("p");
+      todoTextFieldTitle.classList.add("todoListTextTitles");
+      if (key == "date") {
+        todoTextFieldTitle.innerHTML = "Datum:";
+        todoTextFieldValue.innerHTML = `${todo[key].getFullYear()}-${
+          todo[key].getMonth() + 1
+        }-${todo[key].getDate()}`;
+        todoDiv.appendChild(todoTextFieldTitle);
         todoDiv.appendChild(todoTextFieldValue);
-      } else if (key == "date") {
-        todoTextField.innerHTML = `${key}: ${todo[key].getFullYear()}-
-        ${todo[key].getMonth() + 1}-${todo[key].getDate()}`;
-        todoDiv.appendChild(todoTextField);
-      } else {
-        todoTextField.innerHTML = `${key}: ${todo[key]}`;
-        todoDiv.appendChild(todoTextField);
+      } else if (key == "description") {
+        todoTextFieldTitle.innerHTML = "Beskrivning";
+        todoTextFieldValue.innerHTML = `${todo[key]}`;
+        todoDiv.appendChild(todoTextFieldTitle);
+        todoDiv.appendChild(todoTextFieldValue);
+      } else if (key == "title") {
+        todoTextFieldTitle.innerHTML = "Titel:";
+        todoTextFieldValue.innerHTML = `${todo[key]}`;
+        todoDiv.appendChild(todoTextFieldTitle);
+        todoDiv.appendChild(todoTextFieldValue);
       }
     }
     todoListContainer.appendChild(todoDiv);
