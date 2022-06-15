@@ -39,13 +39,13 @@ function renderTodoList(selectedDate) {
   todoListContainer.innerHTML = "";
   let todoArray = [];
 
-  if (todos.length) {
+  if (todos.length && !selectedDate) {
     todoArray = filterTodosByDate(isEarlierDate);
     todoArray.sort((a, b) => a.date.getTime() - b.date.getTime());
   }
 
   if (selectedDate) {
-    todoArray = todoArray.filter((todo) => {
+    todoArray = todos.filter((todo) => {
       if (isSameDate(todo.date, selectedDate)) {
         return todo;
       }
