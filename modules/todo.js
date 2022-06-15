@@ -115,6 +115,8 @@ function saveTodosToLocalStorage() {
 }
 
 function loadTodosFromLocalStorage() {
+  if (!localStorage.getItem("todoArray")) return;
+  
   todos.push(...JSON.parse(localStorage.getItem("todoArray")));
 
   for (const todo of todos) {
