@@ -177,11 +177,16 @@ main {
 .input-block {
   display: none;
   top: 5rem;
-  flex-direction: column;
   margin: 0.2rem;
   padding: 0.5rem;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+#todo-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .input-block button {
