@@ -2,10 +2,6 @@ import { renderCalender, getSelectedDate, isSameDate } from "./calender.js";
 
 const todos = [];
 
-function isNullOrWhitespace(input) {
-  return !input || !input.trim();
-}
-
 function addTodos(event) {
   event.preventDefault();
   const inputTitle = document.getElementById("title").value;
