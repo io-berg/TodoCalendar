@@ -100,11 +100,18 @@ function filterTodosByDate() {
 }
 
 function isEarlierDate(todoDate, currentDate) {
-  return (
-    todoDate.getDate() >= currentDate.getDate() &&
-    todoDate.getMonth() >= currentDate.getMonth() &&
-    todoDate.getFullYear() >= currentDate.getFullYear()
+  todoDate = new Date(
+    todoDate.getFullYear(),
+    todoDate.getMonth(),
+    todoDate.getDate()
   );
+  currentDate = new Date(
+    currentDate.getFullYear(),
+    currentDate.getMonth(),
+    currentDate.getDate()
+  );
+
+  return currentDate <= todoDate;
 }
 
 function getTodos() {
@@ -116,7 +123,7 @@ function saveTodosToLocalStorage() {
 
 function loadTodosFromLocalStorage() {
   if (!localStorage.getItem("todoArray")) return;
-  
+
   todos.push(...JSON.parse(localStorage.getItem("todoArray")));
 
   for (const todo of todos) {
