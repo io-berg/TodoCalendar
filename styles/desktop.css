@@ -18,12 +18,13 @@ header h1 {
 .subheading {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .month-container {
   display: flex;
   flex-direction: row;
-  width: 20rem;
+  width: 100%;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +35,13 @@ header h1 {
   color: black;
   font-size: 40px;
   padding: 5px 25px 5px 25px;
+  text-align: center;
+}
+
+.month-btn {
+  font-size: 2rem;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
 }
 
 .week-days {
@@ -42,11 +50,20 @@ header h1 {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem;
+}
+
+.week-days-full {
+  display: grid;
+}
+
+.week-days-small {
+  display: none;
 }
 
 .week-days h3 {
   font-size: 20px;
-  padding-left: 20px;
+  padding-left: 10px;
 }
 
 header h1 {
@@ -103,11 +120,11 @@ main {
 .calenderContainer {
   font-family: sans-serif;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(40px, 1fr));
   grid-template-rows: repeat(6, 1fr);
   background-color: #ffffff;
   margin: 0.5rem;
-  height: 77vh;
+  height: 60vh;
 }
 
 .grid-item {

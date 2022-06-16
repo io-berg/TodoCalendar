@@ -18,7 +18,7 @@ prevMonthBtn.addEventListener("click", () => {
 });
 
 function renderCalenderMonth() {
-  monthText.innerText = months[month.getMonth()];
+  monthText.innerText = months[month.getMonth()] + " " + month.getFullYear();
 }
 
 let selectedDate = null;

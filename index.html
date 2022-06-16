@@ -10,6 +10,7 @@
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles/desktop.css" />
+    <link rel="stylesheet" href="styles/tablet.css" />
     <link rel="stylesheet" href="styles/mobile.css" />
     <script defer src="modules/Welcome.js"></script>
     <script type="module" defer src="main.js"></script>
@@ -27,22 +28,7 @@
       <h1>Kalender Suvnet -2021- (Blue_group)</h1>
       <p id="date-fact"></p>
     </header>
-    <div class="subheading">
-      <div class="month-container">
-        <i class="fas fa-angle-left prev" id="prev-month"> </i>
-        <h1 id="month-text"></h1>
-        <i class="fas fa-angle-right prev" id="next-month"></i>
-      </div>
-      <div class="week-days">
-        <h3>Måndag</h3>
-        <h3>Tisdag</h3>
-        <h3>Onsdag</h3>
-        <h3>Torsdag</h3>
-        <h3>Fredag</h3>
-        <h3>Lördag</h3>
-        <h3>Söndag</h3>
-      </div>
-    </div>
+
     <aside>
       <div class="welcomeDiv">
         <p class="localTime"></p>
@@ -72,6 +58,31 @@
       </div>
     </aside>
     <main>
+      <div class="subheading">
+        <div class="month-container">
+          <i class="fas fa-angle-left prev month-btn" id="prev-month"> </i>
+          <h1 id="month-text"></h1>
+          <i class="fas fa-angle-right prev month-btn" id="next-month"></i>
+        </div>
+        <div class="week-days week-days-full">
+          <h3>Måndag</h3>
+          <h3>Tisdag</h3>
+          <h3>Onsdag</h3>
+          <h3>Torsdag</h3>
+          <h3>Fredag</h3>
+          <h3>Lördag</h3>
+          <h3>Söndag</h3>
+        </div>
+        <div class="week-days week-days-small">
+          <h3>M</h3>
+          <h3>T</h3>
+          <h3>O</h3>
+          <h3>T</h3>
+          <h3>F</h3>
+          <h3>L</h3>
+          <h3>S</h3>
+        </div>
+      </div>
       <div class="calenderHeader"></div>
       <div id="calender" class="calenderContainer"></div>
     </main>
