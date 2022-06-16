@@ -7,6 +7,14 @@ function addTodos() {
   const inputDescription = document.getElementById("description").value;
   const inputDate = document.getElementById("date").value;
 
+  const isTitleSubmitted = inputTitle.validity.valid;
+  const isDateSubmitted = inputDate.validity.valid;
+  if (!isTitleSubmitted || !isDateSubmitted) {
+    //do something else here
+    alert("Titel och datum måste anges.");
+    return;
+  }
+
   const todo = {
     title: inputTitle,
     description: inputDescription,
