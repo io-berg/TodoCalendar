@@ -71,13 +71,11 @@ function renderTodoList(selectedDate) {
         todoTextFieldValue.innerHTML = `${todo[key].getFullYear()}-${
           todo[key].getMonth() + 1
         }-${todo[key].getDate()}`;
-        todoTextFieldValue.classList.add("todoDateValue");
         todoDiv.appendChild(todoTextFieldTitle);
         todoDiv.appendChild(todoTextFieldValue);
       } else if (key == "description" && todo[key]) {
         todoTextFieldTitle.innerHTML = "Beskrivning";
         todoTextFieldValue.innerHTML = `${todo[key]}`;
-        todoTextFieldValue.classList.add("todoDescriptionValue");
         todoDiv.appendChild(todoTextFieldTitle);
         todoDiv.appendChild(todoTextFieldValue);
       } else if (key == "title") {
@@ -88,7 +86,6 @@ function renderTodoList(selectedDate) {
         titleDiv.classList.add("todoTitleDiv");
         todoTextFieldTitle.innerHTML = "Titel:";
         todoTextFieldValue.innerHTML = `${todo[key]}`;
-        todoTextFieldValue.classList.add("todoTitleValue");
         titleDiv.appendChild(todoTextFieldTitle);
         titleDiv.appendChild(todoTextFieldValue);
 
@@ -113,7 +110,10 @@ function renderTodoList(selectedDate) {
 }
 
 function openEditMode(e, todoDiv) {
-  console.log(todoDiv.childNodes);
+  const todoToEdit = getTodos().find(
+    (todo) => todo.id == e.target.dataset.todoId
+  );
+
   todoDiv.childNodes.forEach((e) => (e.style.display = "none"));
 
   const editDiv = document.createElement("div");
@@ -123,30 +123,28 @@ function openEditMode(e, todoDiv) {
   titleLabel.innerHTML = "Titel:";
   const titleEdit = document.createElement("input");
   titleEdit.classList.add("titleEdit");
-  titleEdit.value = todoDiv.querySelector(".todoTitleValue").innerHTML;
+  titleEdit.value = todoToEdit.title;
+
+  editDiv.appendChild(titleLabel);
+  editDiv.appendChild(titleEdit);
 
   const descriptionLabel = document.createElement("label");
   descriptionLabel.innerHTML = "Beskrivning:";
   const descriptionEdit = document.createElement("textarea");
   descriptionEdit.classList.add("descriptionEdit");
-  descriptionEdit.value = todoDiv.querySelector(
-    ".todoDescriptionValue"
-  ).innerHTML;
+  descriptionEdit.value = todoToEdit.description;
   descriptionEdit.rows = "3";
   descriptionEdit.cols = "40";
+  editDiv.appendChild(descriptionLabel);
+  editDiv.appendChild(descriptionEdit);
 
   const dateLabel = document.createElement("label");
   dateLabel.innerHTML = "Datum:";
   const dateEdit = document.createElement("input");
   dateEdit.type = "date";
-  const dateValue = todoDiv.querySelector(".todoDateValue").innerHTML;
-  if (dateValue.split("-")[1].length == 1) {
-    dateEdit.value = `${dateValue.split("-")[0]}-0${dateValue.split("-")[1]}-${
-      dateValue.split("-")[2]
-    }`;
-  } else {
-    dateEdit.value = dateValue;
-  }
+  const dateValue = todoToEdit.date.toISOString().split("T")[0];
+  console.log(dateValue);
+  dateEdit.value = dateValue;
   dateEdit.classList.add("dateEdit");
 
   const btnDiv = document.createElement("div");
@@ -167,14 +165,11 @@ function openEditMode(e, todoDiv) {
   btnDiv.appendChild(saveBtn);
 
   const todoId = e.target.dataset.todoId;
+
   saveBtn.addEventListener("click", () =>
     saveEdit(dateEdit.value, titleEdit.value, descriptionEdit.value, todoId)
   );
 
-  editDiv.appendChild(titleLabel);
-  editDiv.appendChild(titleEdit);
-  editDiv.appendChild(descriptionLabel);
-  editDiv.appendChild(descriptionEdit);
   editDiv.appendChild(dateLabel);
   editDiv.appendChild(dateEdit);
   editDiv.appendChild(btnDiv);
@@ -186,6 +181,7 @@ function saveEdit(date, title, description, id) {
   todo.date = new Date(date);
   todo.title = title;
   todo.description = description;
+
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
   renderCalender();
