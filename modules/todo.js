@@ -74,7 +74,7 @@ function renderTodoList(selectedDate) {
         todoTextFieldValue.classList.add("todoDateValue");
         todoDiv.appendChild(todoTextFieldTitle);
         todoDiv.appendChild(todoTextFieldValue);
-      } else if (key == "description") {
+      } else if (key == "description" && todo[key]) {
         todoTextFieldTitle.innerHTML = "Beskrivning";
         todoTextFieldValue.innerHTML = `${todo[key]}`;
         todoTextFieldValue.classList.add("todoDescriptionValue");
