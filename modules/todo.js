@@ -2,18 +2,15 @@ import { renderCalender, getSelectedDate, isSameDate } from "./calender.js";
 
 const todos = [];
 
-function addTodos() {
+function isNullOrWhitespace(input) {
+  return !input || !input.trim();
+}
+
+function addTodos(event) {
+  event.preventDefault();
   const inputTitle = document.getElementById("title").value;
   const inputDescription = document.getElementById("description").value;
   const inputDate = document.getElementById("date").value;
-
-  const isTitleSubmitted = document.getElementById("title").validity.valid;
-  const isDateSubmitted = document.getElementById("date").validity.valid;
-  if (!isTitleSubmitted || !isDateSubmitted) {
-    //do something else here
-    alert("Titel och datum måste anges.");
-    return;
-  }
 
   const todo = {
     title: inputTitle,
@@ -40,8 +37,8 @@ function toggleTodoForm() {
 
 const addButton = document.getElementById("addTodo-button");
 addButton.addEventListener("click", toggleTodoForm);
-const createTodoButton = document.getElementById("createTodo-button");
-createTodoButton.addEventListener("click", addTodos);
+const createTodoButton = document.getElementById("todo-form");
+createTodoButton.addEventListener("submit", addTodos);
 
 const todoListContainer = document.getElementById("todo-list-container");
 
