@@ -117,35 +117,44 @@ function openEditMode(e, todoDiv) {
 
   todoDiv.childNodes.forEach((e) => (e.style.display = "none"));
 
-  const editDiv = document.createElement("div");
-  editDiv.classList.add("editDiv");
+  const editForm = document.createElement("form");
+  editForm.classList.add("edit-form");
 
   const titleLabel = document.createElement("label");
-  titleLabel.innerHTML = "Titel:";
+  titleLabel.innerText = "Titel:";
   const titleEdit = document.createElement("input");
+  titleEdit.type = "text";
   titleEdit.classList.add("titleEdit");
   titleEdit.value = todoToEdit.title;
+  titleEdit.required = true;
 
-  editDiv.appendChild(titleLabel);
-  editDiv.appendChild(titleEdit);
+  // Could not get a pattern to block whitespace so this is a workaround
+  titleEdit.addEventListener("keyup", (e) => {
+    if (e.target.value.trim().length == 0) {
+      e.target.value = "";
+    }
+  });
+
+  editForm.appendChild(titleLabel);
+  editForm.appendChild(titleEdit);
 
   const descriptionLabel = document.createElement("label");
-  descriptionLabel.innerHTML = "Beskrivning:";
+  descriptionLabel.innerText = "Beskrivning:";
   const descriptionEdit = document.createElement("textarea");
   descriptionEdit.classList.add("descriptionEdit");
   descriptionEdit.value = todoToEdit.description;
   descriptionEdit.rows = "3";
   descriptionEdit.cols = "40";
-  editDiv.appendChild(descriptionLabel);
-  editDiv.appendChild(descriptionEdit);
+  editForm.appendChild(descriptionLabel);
+  editForm.appendChild(descriptionEdit);
 
   const dateLabel = document.createElement("label");
-  dateLabel.innerHTML = "Datum:";
+  dateLabel.innerText = "Datum:";
   const dateEdit = document.createElement("input");
   dateEdit.type = "date";
   const dateValue = todoToEdit.date.toISOString().split("T")[0];
-  console.log(dateValue);
   dateEdit.value = dateValue;
+  dateEdit.required = true;
   dateEdit.classList.add("dateEdit");
 
   const btnDiv = document.createElement("div");
@@ -167,17 +176,18 @@ function openEditMode(e, todoDiv) {
 
   const todoId = e.target.dataset.todoId;
 
-  saveBtn.addEventListener("click", () =>
-    saveEdit(dateEdit.value, titleEdit.value, descriptionEdit.value, todoId)
+  editForm.addEventListener("submit", (e) =>
+    saveEdit(dateEdit.value, titleEdit.value, descriptionEdit.value, todoId, e)
   );
 
-  editDiv.appendChild(dateLabel);
-  editDiv.appendChild(dateEdit);
-  editDiv.appendChild(btnDiv);
-  todoDiv.appendChild(editDiv);
+  editForm.appendChild(dateLabel);
+  editForm.appendChild(dateEdit);
+  editForm.appendChild(btnDiv);
+  todoDiv.appendChild(editForm);
 }
 
-function saveEdit(date, title, description, id) {
+function saveEdit(date, title, description, id, event) {
+  event.preventDefault();
   const todo = todos.find((todo) => todo.id == id);
   todo.date = new Date(date);
   todo.title = title;
