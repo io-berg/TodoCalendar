@@ -231,12 +231,12 @@ main {
   font-weight: bold;
 }
 
-.editDiv {
+.edit-form {
   display: flex;
   flex-direction: column;
 }
 
-.editDiv button {
+.edit-form button {
   align-self: flex-end;
   margin-top: 10px;
   width: 100%;
