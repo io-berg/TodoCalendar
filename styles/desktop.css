@@ -248,3 +248,7 @@ main {
   align-items: center;
   width: 100%;
 }
+
+i {
+  padding: 2px;
+}
