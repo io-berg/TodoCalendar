@@ -11,7 +11,7 @@ const weekDays = [
   "Lördag",
 ];
 
-function updateClock() {
+function renderClock() {
   const dateInfo = new Date();
   timeText.innerHTML = "";
   dayText.innerHTML = "";
@@ -29,7 +29,7 @@ function updateClock() {
   dateText.append(
     `${dateInfo.getFullYear()}-${dateInfo.getMonth() + 1}-${dateInfo.getDate()}`
   );
+  setTimeout(renderClock, 1000);
 }
-updateClock();
 
-setInterval(updateClock, 1000);
+export { renderClock };
