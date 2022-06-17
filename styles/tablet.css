@@ -34,4 +34,13 @@
   .week-days h3 {
     padding-left: 0;
   }
+  #date-fact {
+    display: none;
+  }
+  .profil-info {
+    display: none;
+  }
+  .titel-kalender {
+    margin-right: 250px;
+  }
 }

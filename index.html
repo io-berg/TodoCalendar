@@ -21,12 +21,29 @@
       crossorigin="anonymous"
       referrerpolicy="no-referrer"
     />
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
   </head>
   <body>
     <header>
-      <div></div>
-      <h1>Todo Kalender</h1>
       <p id="date-fact"></p>
+      <h1 class="titel-kalender">Todo Kalender</h1>
+      <div class="profil-div">
+        <div class="profil-över">
+          <div class="profil-info">
+            <span id="name">Namn:</span>
+            <span></span>
+            <img id="image" src="" alt="" />
+          </div>
+
+          <h6>Till annan:</h6>
+          <div class="button-div">
+            <button onclick="getRandomUser()">Användare</button>
+          </div>
+        </div>
+      </div>
     </header>
 
     <aside>

@@ -7,4 +7,11 @@
   #month-text {
     font-size: 2rem;
   }
+
+  #date-fact {
+    display: none;
+  }
+  .profil-info {
+    display: none;
+  }
 }
