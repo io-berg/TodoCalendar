@@ -1,0 +1,10 @@
+@media screen and (max-width: 707px) {
+  aside {
+    float: none;
+    width: 100%;
+  }
+
+  #month-text {
+    font-size: 2rem;
+  }
+}

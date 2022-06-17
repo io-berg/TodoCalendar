@@ -4,6 +4,13 @@
   box-sizing: border-box;
 }
 
+header * {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 header {
   height: 7rem;
   background: linear-gradient(to right, #00aaff, #00ff6c);
@@ -13,17 +20,32 @@ header {
 
 header h1 {
   color: rgb(36, 5, 211);
+  flex-grow: 2;
+}
+
+label {
+  display: flex;
+  width: 100%;
+}
+
+input,
+textarea {
+  flex-grow: 1;
+  padding: 0.5rem;
+  border: 1px solid rgb(36, 5, 211);
+  border-radius: 0.5rem;
 }
 
 .subheading {
   display: flex;
   justify-content: space-between;
+  flex-direction: column;
 }
 
 .month-container {
   display: flex;
   flex-direction: row;
-  width: 20rem;
+  width: 100%;
   padding: 1rem;
   justify-content: space-between;
   align-items: center;
@@ -34,6 +56,13 @@ header h1 {
   color: black;
   font-size: 40px;
   padding: 5px 25px 5px 25px;
+  text-align: center;
+}
+
+.month-btn {
+  font-size: 2rem;
+  padding-left: 1.8rem;
+  padding-right: 1.8rem;
 }
 
 .week-days {
@@ -42,23 +71,20 @@ header h1 {
   flex-grow: 1;
   justify-content: center;
   align-items: center;
+  margin: 0.5rem;
+}
+
+.week-days-full {
+  display: grid;
+}
+
+.week-days-small {
+  display: none;
 }
 
 .week-days h3 {
   font-size: 20px;
-  padding-left: 20px;
-}
-
-header h1 {
-  color: rgb(36, 5, 211);
-  flex-grow: 2;
-}
-
-header * {
-  flex: 1;
-  display: flex;
-  justify-content: center;
-  align-items: center;
+  padding-left: 10px;
 }
 
 aside {
@@ -103,11 +129,11 @@ main {
 .calenderContainer {
   font-family: sans-serif;
   display: grid;
-  grid-template-columns: repeat(7, 1fr);
+  grid-template-columns: repeat(7, minmax(40px, 1fr));
   grid-template-rows: repeat(6, 1fr);
   background-color: #ffffff;
   margin: 0.5rem;
-  height: 77vh;
+  height: 60vh;
 }
 
 .grid-item {
@@ -151,8 +177,20 @@ main {
 .input-block {
   display: none;
   top: 5rem;
-  padding: 5px;
+  margin: 0.2rem;
+  padding: 0.5rem;
+  border: 1px solid black;
+  border-radius: 5px;
+}
+
+#todo-form {
+  display: flex;
   flex-direction: column;
+  width: 100%;
+}
+
+.input-block button {
+  margin-top: 10px;
 }
 
 .todoheader {
@@ -167,6 +205,11 @@ main {
 .addTodo-button {
   font-size: 28px;
   cursor: pointer;
+}
+
+.todoHeaderDiv {
+  display: flex;
+  justify-content: space-between;
 }
 
 .todoListContainer {
@@ -186,4 +229,22 @@ main {
 .todoListTextTitles {
   font-size: 16px;
   font-weight: bold;
+}
+
+.editDiv {
+  display: flex;
+  flex-direction: column;
+}
+
+.editDiv button {
+  align-self: flex-end;
+  margin-top: 10px;
+  width: 100%;
+}
+
+.editmodeBtnDiv {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  width: 100%;
 }
