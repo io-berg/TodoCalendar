@@ -101,8 +101,8 @@ function renderTodoList(selectedDate) {
         editIcon.addEventListener("click", (e) => openEditMode(e, todoDiv));
 
         const removeIcon = document.createElement("i");
-        removeIcon.classList.add("material-icons");
-        removeIcon.innerText = "delete_forever";
+        removeIcon.classList.add("fa-solid", "fa-trash-can");
+        //removeIcon.innerText = "delete_forever";
         removeIcon.dataset.todoId = todo.id;
         removeIcon.addEventListener("click", (e) => openRemoveMode(e, todoDiv));
 
