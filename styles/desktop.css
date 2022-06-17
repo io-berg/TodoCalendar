@@ -205,7 +205,8 @@ main {
 }
 
 .addTodo-button {
-  font-size: 28px;
+  font-size: 20px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -249,4 +250,8 @@ main {
   flex-direction: row;
   align-items: center;
   width: 100%;
+}
+
+i {
+  padding: 2px;
 }
