@@ -20,55 +20,57 @@ header {
   justify-content: space-between;
 }
 
-header #date-fact {
-  text-align: left;
-}
-
 header h1 {
-  color: rgb(36, 5, 211);
+  color: rgb(29, 48, 190);
   flex-grow: 2;
 }
 #date-fact {
-  margin-left: 20px;
+  text-align: left;
+  font-size: smaller;
   display: flex;
   flex-direction: row;
   font-family: "Open Sans", sans-serif;
+  margin-right: 300px;
+  margin-left: 10px;
 }
 .profil-över {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
+  align-items: center;
   font-family: "Open Sans", sans-serif;
 }
+
 .profil-info {
   display: flex;
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans", sans-serif;
-  margin-right: 20px;
-  margin-top: 60px;
+  margin-right: 400px;
+  margin-top: 5px;
+
+  font-size: 70%;
 }
 .profil-över img {
   border-radius: 3rem;
   border: 3px solid rgb(87, 191, 239);
   height: 20px;
-  width: 50px;
+  width: 40px;
   margin-right: 70px;
+
+  margin-left: 50px;
 }
 .profil-över h6 {
-  margin-right: 18px;
   color: rgb(84, 83, 83);
+  margin-right: 40px;
 }
 button {
-  border-radius: 1rem;
-
+  border-radius: 0.5rem;
   padding: 3px;
   cursor: pointer;
 
-  margin-bottom: 60px;
-  margin-right: 5px;
+  margin-right: 10px;
   background: linear-gradient(to right, #00aaff, #00ff6c);
-  color: black;
+  font-size: 70%;
 }
 button:hover {
   background: white;
