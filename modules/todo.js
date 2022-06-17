@@ -102,7 +102,6 @@ function renderTodoList(selectedDate) {
 
         const removeIcon = document.createElement("i");
         removeIcon.classList.add("fa-solid", "fa-trash-can");
-        //removeIcon.innerText = "delete_forever";
         removeIcon.dataset.todoId = todo.id;
         removeIcon.addEventListener("click", (e) => openRemoveMode(e, todoDiv));
 
@@ -120,7 +119,9 @@ function openRemoveMode(e, todoDiv) {
   const todoToRemove = getTodos().find(
     (todo) => todo.id == e.target.dataset.todoId
   );
-  removeTodo(todoToRemove);
+  if (confirm("Vill du ta bort den här todon?")) {
+    removeTodo(todoToRemove);
+  }
 }
 function removeTodo(id) {
   const todo = todos.indexOf(id);
