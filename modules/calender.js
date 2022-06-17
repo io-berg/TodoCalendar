@@ -124,15 +124,17 @@ function selectDate(e) {
   }
 
   if (selectedDate) {
-    setDateFact();
+    setDateFact(selectedDate);
+  } else {
+    setDateFact(new Date());
   }
 
   renderTodoList(selectedDate);
   renderCalender();
 }
 
-function setDateFact() {
-  const fact = getDateFact(selectedDate.getMonth() + 1, selectedDate.getDate());
+function setDateFact(date) {
+  const fact = getDateFact(date.getMonth() + 1, date.getDate());
   fact
     .then((res) => res.text())
     .then((data) => {
@@ -152,4 +154,10 @@ function getSelectedDate() {
   return selectedDate;
 }
 
-export { renderCalender, getSelectedDate, isSameDate, renderCalenderMonth };
+export {
+  renderCalender,
+  getSelectedDate,
+  isSameDate,
+  renderCalenderMonth,
+  setDateFact,
+};
