@@ -123,7 +123,8 @@ function openRemoveMode(e, todoDiv) {
   removeTodo(todoToRemove);
 }
 function removeTodo(id) {
-  todos.splice(id, 1);
+  const todo = todos.indexOf(id);
+  todos.splice(todo, 1);
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
   renderCalender();
