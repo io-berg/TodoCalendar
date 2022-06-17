@@ -141,7 +141,7 @@ textarea {
 
 aside {
   width: 20rem;
-  height: 100vh;
+  height: 100vh - 7rem;
   background-color: #f5f5f5;
   float: left;
   margin-right: 0.5rem;
@@ -229,11 +229,16 @@ main {
 .input-block {
   display: none;
   top: 5rem;
-  flex-direction: column;
   margin: 0.2rem;
   padding: 0.5rem;
   border: 1px solid black;
   border-radius: 5px;
+}
+
+#todo-form {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
 }
 
 .input-block button {
@@ -247,10 +252,13 @@ main {
   align-items: center;
   background: #00aaff;
   height: 2rem;
+  border-top: 1px solid #f5f5f5;
+  padding: 5px;
 }
 
 .addTodo-button {
-  font-size: 28px;
+  font-size: 20px;
+  padding: 5px;
   cursor: pointer;
 }
 
@@ -278,12 +286,12 @@ main {
   font-weight: bold;
 }
 
-.editDiv {
+.edit-form {
   display: flex;
   flex-direction: column;
 }
 
-.editDiv button {
+.edit-form button {
   align-self: flex-end;
   margin-top: 10px;
   width: 100%;
@@ -294,4 +302,8 @@ main {
   flex-direction: row;
   align-items: center;
   width: 100%;
+}
+
+i {
+  padding: 2px;
 }

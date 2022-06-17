@@ -5,10 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Document</title>
-    <link
-      href="https://fonts.googleapis.com/icon?family=Material+Icons"
-      rel="stylesheet"
-    />
+
     <link rel="stylesheet" href="styles/desktop.css" />
     <link rel="stylesheet" href="styles/tablet.css" />
     <link rel="stylesheet" href="styles/mobile.css" />
@@ -56,19 +53,20 @@
       <div class="todoContainer">
         <div class="todoheader">
           <h4>Lägg till ny aktivitet</h4>
-          <i id="addTodo-button" class="material-icons addTodo-button"
-            >add_box</i
-          >
+          <i id="addTodo-button" class="fa-solid fa-plus addTodo-button"></i>
         </div>
         <div id="input-block" class="input-block">
-          <label for="title">Titel:</label>
-          <input id="title" type="text" /><br />
-          <label for="description">Beskrivning:</label>
-          <textarea id="description" rows="10" cols="30"></textarea><br />
-          <label for="date">Datum: </label>
-          <input id="date" type="date" />
-          <button id="createTodo-button">Skapa</button>
+          <form id="todo-form">
+            <label for="title">Titel:</label>
+            <input id="title" type="text" required pattern=".*\S+.*" />
+            <label for="description">Beskrivning:</label>
+            <textarea id="description" rows="10" cols="30"></textarea>
+            <label for="date">Datum: </label>
+            <input id="date" type="date" required />
+            <button id="createTodo-button" type="submit">Skapa</button>
+          </form>
         </div>
+
         <div class="todoheader">
           <h4 id="todo-list-header"></h4>
         </div>
