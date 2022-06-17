@@ -22,17 +22,6 @@ function addTodos(event) {
   renderCalender();
 }
 
-function removeTodo() {
-  const inputTitle = document.getElementById("remove-title").value;
-  //const inputDate = document.getElementById("remove-date").value;
-  const id = todos.indexOf(inputTitle);
-  todos.splice(id, 1);
-  saveTodosToLocalStorage();
-  renderTodoList(getSelectedDate());
-  toggleTodoForm();
-  renderCalender();
-}
-
 let todoFormVisible = false;
 
 function toggleTodoForm() {
@@ -46,17 +35,6 @@ const addButton = document.getElementById("addTodo-button");
 addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("todo-form");
 createTodoButton.addEventListener("submit", addTodos);
-
-function toggleTodoFormRemove() {
-  todoFormVisible = !todoFormVisible;
-  let displayStyle = todoFormVisible ? "block" : "none";
-  document.getElementById("input-block-remove").style.display = displayStyle;
-}
-
-const addRemoveButton = document.getElementById("add-removeTodo-button");
-addRemoveButton.addEventListener("click", toggleTodoFormRemove);
-const removeButton = document.getElementById("removeTodo-button");
-removeButton.addEventListener("click", removeTodo);
 
 const todoListContainer = document.getElementById("todo-list-container");
 
@@ -120,9 +98,16 @@ function renderTodoList(selectedDate) {
         const editIcon = document.createElement("i");
         editIcon.classList.add("fas", "fa-edit");
         editIcon.dataset.todoId = todo.id;
-        todoBtnDiv.addEventListener("click", (e) => openEditMode(e, todoDiv));
+        editIcon.addEventListener("click", (e) => openEditMode(e, todoDiv));
+
+        const removeIcon = document.createElement("i");
+        removeIcon.classList.add("material-icons");
+        removeIcon.innerText = "delete_forever";
+        removeIcon.dataset.todoId = todo.id;
+        removeIcon.addEventListener("click", (e) => openRemoveMode(e, todoDiv));
 
         todoBtnDiv.appendChild(editIcon);
+        todoBtnDiv.appendChild(removeIcon);
         todoHeader.appendChild(todoBtnDiv);
 
         todoDiv.appendChild(todoHeader);
@@ -130,6 +115,18 @@ function renderTodoList(selectedDate) {
     }
     todoListContainer.appendChild(todoDiv);
   }
+}
+function openRemoveMode(e, todoDiv) {
+  const todoToRemove = getTodos().find(
+    (todo) => todo.id == e.target.dataset.todoId
+  );
+  removeTodo(todoToRemove);
+}
+function removeTodo(id) {
+  todos.splice(id, 1);
+  saveTodosToLocalStorage();
+  renderTodoList(getSelectedDate());
+  renderCalender();
 }
 
 function openEditMode(e, todoDiv) {
