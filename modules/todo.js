@@ -98,9 +98,15 @@ function renderTodoList(selectedDate) {
         const editIcon = document.createElement("i");
         editIcon.classList.add("fas", "fa-edit");
         editIcon.dataset.todoId = todo.id;
-        todoBtnDiv.addEventListener("click", (e) => openEditMode(e, todoDiv));
+        editIcon.addEventListener("click", (e) => openEditMode(e, todoDiv));
+
+        const removeIcon = document.createElement("i");
+        removeIcon.classList.add("fa-solid", "fa-trash-can");
+        removeIcon.dataset.todoId = todo.id;
+        removeIcon.addEventListener("click", (e) => openRemoveMode(e, todoDiv));
 
         todoBtnDiv.appendChild(editIcon);
+        todoBtnDiv.appendChild(removeIcon);
         todoHeader.appendChild(todoBtnDiv);
 
         todoDiv.appendChild(todoHeader);
@@ -108,6 +114,21 @@ function renderTodoList(selectedDate) {
     }
     todoListContainer.appendChild(todoDiv);
   }
+}
+function openRemoveMode(e, todoDiv) {
+  const todoToRemove = getTodos().find(
+    (todo) => todo.id == e.target.dataset.todoId
+  );
+  if (confirm("Vill du ta bort den här todon?")) {
+    removeTodo(todoToRemove);
+  }
+}
+function removeTodo(id) {
+  const todo = todos.indexOf(id);
+  todos.splice(todo, 1);
+  saveTodosToLocalStorage();
+  renderTodoList(getSelectedDate());
+  renderCalender();
 }
 
 function openEditMode(e, todoDiv) {
