@@ -21,8 +21,14 @@ header {
 }
 
 header h1 {
-  color: rgb(29, 48, 190);
+  color: rgb(231, 229, 229);
   flex-grow: 2;
+}
+.text-ram {
+  background-color: antiquewhite;
+  border-radius: 0.5rem;
+  margin: 20px 200px 20px 5px;
+  background: linear-gradient(to right, #3593c1, #79eda9);
 }
 #date-fact {
   text-align: left;
@@ -30,7 +36,6 @@ header h1 {
   display: flex;
   flex-direction: row;
   font-family: "Open Sans", sans-serif;
-  margin-right: 300px;
   margin-left: 10px;
 }
 .profil-över {
@@ -45,32 +50,32 @@ header h1 {
   flex-direction: column;
   align-items: center;
   font-family: "Open Sans", sans-serif;
-  margin-right: 400px;
+  margin-left: 200px;
   margin-top: 5px;
-
-  font-size: 70%;
+  margin-right: 5px;
+}
+#name {
+  font-size: 50%;
+  margin-top: 5px;
 }
 .profil-över img {
+  margin-top: 5px;
+  margin-right: 10px;
   border-radius: 3rem;
   border: 3px solid rgb(87, 191, 239);
-  height: 20px;
+  height: 40px;
   width: 40px;
-  margin-right: 70px;
+}
 
-  margin-left: 50px;
-}
-.profil-över h6 {
-  color: rgb(84, 83, 83);
-  margin-right: 40px;
-}
 button {
   border-radius: 0.5rem;
   padding: 3px;
   cursor: pointer;
-
-  margin-right: 10px;
+  margin-left: 200px;
   background: linear-gradient(to right, #00aaff, #00ff6c);
-  font-size: 70%;
+  font-size: 60%;
+  margin-bottom: 5px;
+  margin-right: 5px;
 }
 button:hover {
   background: white;
