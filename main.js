@@ -3,10 +3,8 @@ import {
   renderCalenderMonth,
   setDateFact,
 } from "./modules/calender.js";
-import {
-  renderTodoList,
-  loadTodosFromLocalStorage,
-} from "./modules/todos/todo.js";
+import { loadTodosFromLocalStorage } from "./modules/todos/todo.js";
+import { renderTodoList } from "./modules/todos/renderTodoList.js";
 import { renderClock } from "./modules/Clock.js";
 
 loadTodosFromLocalStorage();

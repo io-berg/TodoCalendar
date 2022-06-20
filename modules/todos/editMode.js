@@ -1,5 +1,6 @@
-import { getTodos, saveTodosToLocalStorage, renderTodoList } from "./todo.js";
+import { getTodos, saveTodosToLocalStorage } from "./todo.js";
 import { renderCalender, getSelectedDate } from "../calender.js";
+import { renderTodoList } from "./renderTodoList.js";
 
 function openEditMode(e, todoDiv) {
   const todoToEdit = getTodos().find(
