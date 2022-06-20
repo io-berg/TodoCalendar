@@ -30,9 +30,6 @@ function renderTodoList(selectedDate) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todoListDiv");
     for (const key of Object.keys(todo)) {
-      const todoTextFieldTitle = document.createElement("p");
-      const todoTextFieldValue = document.createElement("p");
-      todoTextFieldTitle.classList.add("todoListTextTitles");
       if (key == "date") {
         buildTodoListField(
           "Datum:",
@@ -118,4 +115,5 @@ function buildEditAndRemoveButtonDiv(todo, todoDiv) {
   todoBtnDiv.appendChild(removeIcon);
   return todoBtnDiv;
 }
+
 export { renderTodoList };
