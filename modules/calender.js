@@ -1,4 +1,4 @@
-import { getTodos, renderTodoList } from "./todo.js";
+import { getTodos, renderTodoList } from "./todos/todo.js";
 import { getDateFact } from "./httpClient.js";
 
 const calender = document.getElementById("calender");
