@@ -51,22 +51,7 @@ function renderTodoList(selectedDate) {
 
         todoHeader.appendChild(titleDiv);
 
-        const todoBtnDiv = document.createElement("div");
-        todoBtnDiv.classList.add("todoBtnDiv");
-
-        const editIcon = document.createElement("i");
-        editIcon.classList.add("fas", "fa-edit");
-        editIcon.dataset.todoId = todo.id;
-        editIcon.addEventListener("click", (e) => openEditMode(e, todoDiv));
-
-        const removeIcon = document.createElement("i");
-        removeIcon.classList.add("fa-solid", "fa-trash-can");
-        removeIcon.dataset.todoId = todo.id;
-        removeIcon.addEventListener("click", (e) => openRemoveMode(e, todoDiv));
-
-        todoBtnDiv.appendChild(editIcon);
-        todoBtnDiv.appendChild(removeIcon);
-        todoHeader.appendChild(todoBtnDiv);
+        todoHeader.appendChild(buildEditAndRemoveButtonDiv(todo, todoDiv));
 
         todoDiv.appendChild(todoHeader);
       }
@@ -115,4 +100,22 @@ function buildTodoListField(title, value, parentDiv) {
   parentDiv.appendChild(todoTextFieldValue);
 }
 
+function buildEditAndRemoveButtonDiv(todo, todoDiv) {
+  const todoBtnDiv = document.createElement("div");
+  todoBtnDiv.classList.add("todoBtnDiv");
+
+  const editIcon = document.createElement("i");
+  editIcon.classList.add("fas", "fa-edit");
+  editIcon.dataset.todoId = todo.id;
+  editIcon.addEventListener("click", (e) => openEditMode(e, todoDiv));
+
+  const removeIcon = document.createElement("i");
+  removeIcon.classList.add("fa-solid", "fa-trash-can");
+  removeIcon.dataset.todoId = todo.id;
+  removeIcon.addEventListener("click", (e) => openRemoveMode(e, todoDiv));
+
+  todoBtnDiv.appendChild(editIcon);
+  todoBtnDiv.appendChild(removeIcon);
+  return todoBtnDiv;
+}
 export { renderTodoList };
