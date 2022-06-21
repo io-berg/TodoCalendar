@@ -25,10 +25,8 @@ header h1 {
   flex-grow: 2;
 }
 .text-ram {
-  background-color: antiquewhite;
   border-radius: 0.5rem;
   margin: 20px 200px 20px 5px;
-  background: linear-gradient(to right, #3593c1, #79eda9);
 }
 #date-fact {
   text-align: left;
