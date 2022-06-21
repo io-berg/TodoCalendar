@@ -65,7 +65,7 @@ header h1 {
   width: 40px;
 }
 
-button {
+#userBtn {
   border-radius: 0.5rem;
   padding: 3px;
   cursor: pointer;
