@@ -11,14 +11,11 @@
   .text-ram {
     display: none;
   }
-  .profil-info {
-    display: none;
-  }
-  .button-div {
+
+  .profil-över {
     display: none;
   }
   .titel-kalender {
     font-size: 1.5rem;
-    margin-left: 100%;
   }
 }

@@ -35,14 +35,11 @@
     padding-left: 0;
   }
 
-  .profil-info {
-    display: none;
-  }
   .text-ram {
     display: none;
   }
-  .button-div {
+
+  .profil-över {
     display: none;
-    margin-right: 25px;
   }
 }
