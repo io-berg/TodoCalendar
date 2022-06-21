@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="styles/desktop.css" />
     <link rel="stylesheet" href="styles/tablet.css" />
     <link rel="stylesheet" href="styles/mobile.css" />
+
+    <script defer src="modules/headerprofil.js"></script>
     <script type="module" defer src="main.js"></script>
+
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -20,9 +23,23 @@
   </head>
   <body>
     <header>
-      <div></div>
-      <h1>Todo Kalender</h1>
-      <p id="date-fact"></p>
+      <div class="text-ram">
+        <p id="date-fact"></p>
+      </div>
+
+      <div>
+        <h1 class="titel-kalender">Todo_Kalender</h1>
+      </div>
+      <div class="profil-över">
+        <div class="profil-info">
+          <img id="image" src="" alt="" />
+          <span id="name">Namn:</span>
+          <span></span>
+        </div>
+        <div class="button-div">
+          <button id="userBtn">Byt användare</button>
+        </div>
+      </div>
     </header>
 
     <aside>

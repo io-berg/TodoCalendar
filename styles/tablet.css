@@ -34,4 +34,15 @@
   .week-days h3 {
     padding-left: 0;
   }
+
+  .profil-info {
+    display: none;
+  }
+  .text-ram {
+    display: none;
+  }
+  .button-div {
+    display: none;
+    margin-right: 25px;
+  }
 }

@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;500;600;700&family=Roboto:wght@300&display=swap");
+
 * {
   padding: 0;
   margin: 0;
@@ -12,15 +14,70 @@ header * {
 }
 
 header {
-  height: 7rem;
+  height: 8rem;
   background: linear-gradient(to right, #00aaff, #00ff6c);
   display: flex;
   justify-content: space-between;
 }
 
 header h1 {
-  color: rgb(36, 5, 211);
+  color: rgb(231, 229, 229);
   flex-grow: 2;
+}
+.text-ram {
+  border-radius: 0.5rem;
+  margin: 20px 200px 20px 5px;
+}
+#date-fact {
+  text-align: left;
+  font-size: smaller;
+  display: flex;
+  flex-direction: row;
+  font-family: "Open Sans", sans-serif;
+  margin-left: 10px;
+}
+.profil-över {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+}
+
+.profil-info {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Open Sans", sans-serif;
+  margin-left: 200px;
+  margin-top: 5px;
+  margin-right: 5px;
+}
+#name {
+  font-size: 50%;
+  margin-top: 5px;
+}
+.profil-över img {
+  margin-top: 5px;
+  margin-right: 10px;
+  border-radius: 3rem;
+  border: 3px solid rgb(87, 191, 239);
+  height: 40px;
+  width: 40px;
+}
+
+#userBtn {
+  border-radius: 0.5rem;
+  padding: 3px;
+  cursor: pointer;
+  margin-left: 200px;
+  background: linear-gradient(to right, #00aaff, #00ff6c);
+  font-size: 60%;
+  margin-bottom: 5px;
+  margin-right: 5px;
+}
+button:hover {
+  background: white;
+  color: black;
 }
 
 label {
