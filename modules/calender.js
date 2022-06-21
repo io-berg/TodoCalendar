@@ -1,5 +1,6 @@
-import { getTodos, renderTodoList } from "./todo.js";
+import { getTodos } from "./todos/todo.js";
 import { getDateFact } from "./httpClient.js";
+import { renderTodoList } from "./todos/renderTodoList.js";
 
 const calender = document.getElementById("calender");
 const monthText = document.getElementById("month-text");
