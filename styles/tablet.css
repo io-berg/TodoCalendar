@@ -42,6 +42,7 @@
     display: none;
   }
   .button-div {
+    display: none;
     margin-right: 25px;
   }
 }
