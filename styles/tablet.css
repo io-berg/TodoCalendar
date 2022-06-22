@@ -35,11 +35,11 @@
     padding-left: 0;
   }
 
-  .text-ram {
+  .text-frame {
     display: none;
   }
 
-  .profil-över {
+  .profile-container {
     display: none;
   }
 }

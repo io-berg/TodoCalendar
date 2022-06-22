@@ -8,14 +8,14 @@
     font-size: 2rem;
   }
 
-  .text-ram {
+  .text-frame {
     display: none;
   }
 
-  .profil-över {
+  .profile-container {
     display: none;
   }
-  .titel-kalender {
+  .title-calendar {
     font-size: 1.5rem;
   }
 }
