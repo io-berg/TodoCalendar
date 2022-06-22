@@ -14,7 +14,4 @@ setDateFact(new Date());
 renderCalenderMonth();
 renderCalender();
 renderTodoList();
-
 getRandomUser();
-
-//export { getRandomUser, };

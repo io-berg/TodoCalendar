@@ -37,7 +37,7 @@ addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("todo-form");
 createTodoButton.addEventListener("submit", addTodos);
 
-function openRemoveMode(e, todoDiv) {
+function openRemoveMode(e) {
   const todoToRemove = getTodos().find(
     (todo) => todo.id == e.target.dataset.todoId
   );
@@ -45,6 +45,7 @@ function openRemoveMode(e, todoDiv) {
     removeTodo(todoToRemove);
   }
 }
+
 function removeTodo(id) {
   const todo = todos.indexOf(id);
   todos.splice(todo, 1);

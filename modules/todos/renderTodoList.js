@@ -26,6 +26,7 @@ function renderTodoList(selectedDate) {
       }
     });
   }
+
   for (const todo of todoArray) {
     const todoDiv = document.createElement("div");
     todoDiv.classList.add("todoListDiv");

@@ -1,10 +1,12 @@
+import { getUser } from "./httpClient.js";
+
 async function getRandomUser() {
-  const response = await fetch(`https://randomuser.me/api/`);
+  const response = await getUser();
   const data = await response.json();
   const user = data.results[0];
-  //console.log(user);
   displayUser(user);
 }
+
 function displayUser(user) {
   const name = document.getElementById("name");
   const image = document.getElementById("image");

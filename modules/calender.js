@@ -5,6 +5,7 @@ import { renderTodoList } from "./todos/renderTodoList.js";
 const calender = document.getElementById("calender");
 const monthText = document.getElementById("month-text");
 const nextMonthBtn = document.getElementById("next-month");
+
 nextMonthBtn.addEventListener("click", () => {
   month.setMonth(month.getMonth() + 1);
   renderCalenderMonth();
