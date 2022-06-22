@@ -188,8 +188,8 @@ main {
   font-size: 30px;
 }
 
-/* CALENDER STYLES */
-.calenderContainer {
+/* CALENDAR STYLES */
+.calendarContainer {
   font-family: sans-serif;
   display: grid;
   grid-template-columns: repeat(7, minmax(40px, 1fr));

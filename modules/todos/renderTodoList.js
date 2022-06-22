@@ -1,6 +1,6 @@
 import { openEditMode } from "./editMode.js";
 import { openRemoveMode, todos } from "./todo.js";
-import { isSameDate } from "../calender.js";
+import { isSameDate } from "../calendar.js";
 
 const todoListContainer = document.getElementById("todo-list-container");
 

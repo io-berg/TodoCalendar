@@ -1,4 +1,4 @@
-import { renderCalender, getSelectedDate } from "../calender.js";
+import { renderCalendar, getSelectedDate } from "../calendar.js";
 import { renderTodoList } from "./renderTodoList.js";
 
 const todos = [];
@@ -20,7 +20,7 @@ function addTodos(event) {
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
   toggleTodoForm();
-  renderCalender();
+  renderCalendar();
 }
 
 let todoFormVisible = false;
@@ -51,7 +51,7 @@ function removeTodo(id) {
   todos.splice(todo, 1);
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
-  renderCalender();
+  renderCalendar();
 }
 
 function getTodos() {

@@ -2,24 +2,24 @@ import { getTodos } from "./todos/todo.js";
 import { getDateFact } from "./httpClient.js";
 import { renderTodoList } from "./todos/renderTodoList.js";
 
-const calender = document.getElementById("calender");
+const calendar = document.getElementById("calendar");
 const monthText = document.getElementById("month-text");
 const nextMonthBtn = document.getElementById("next-month");
 
 nextMonthBtn.addEventListener("click", () => {
   month.setMonth(month.getMonth() + 1);
-  renderCalenderMonth();
-  renderCalender();
+  renderCalendarMonth();
+  renderCalendar();
 });
 
 const prevMonthBtn = document.getElementById("prev-month");
 prevMonthBtn.addEventListener("click", () => {
   month.setMonth(month.getMonth() - 1);
-  renderCalenderMonth();
-  renderCalender();
+  renderCalendarMonth();
+  renderCalendar();
 });
 
-function renderCalenderMonth() {
+function renderCalendarMonth() {
   monthText.innerText = months[month.getMonth()] + " " + month.getFullYear();
 }
 
@@ -40,8 +40,8 @@ const months = [
   "December",
 ];
 
-function renderCalender() {
-  calender.innerHTML = "";
+function renderCalendar() {
+  calendar.innerHTML = "";
   const startDate = new Date(month.getFullYear(), month.getMonth(), 1);
 
   // If the first date of the month is not a monday, make the startdate the previous monday.
@@ -57,7 +57,7 @@ function renderCalender() {
       const day = buildDayCell(date);
       addTodos(day, date);
 
-      calender.appendChild(day);
+      calendar.appendChild(day);
     }
   }
 }
@@ -132,7 +132,7 @@ function selectDate(e) {
   }
 
   renderTodoList(selectedDate);
-  renderCalender();
+  renderCalendar();
 }
 
 function setDateFact(date) {
@@ -157,9 +157,9 @@ function getSelectedDate() {
 }
 
 export {
-  renderCalender,
+  renderCalendar,
   getSelectedDate,
   isSameDate,
-  renderCalenderMonth,
+  renderCalendarMonth,
   setDateFact,
 };
