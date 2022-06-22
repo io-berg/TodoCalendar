@@ -3,4 +3,9 @@ async function getDateFact(month, day) {
   return fetch(url);
 }
 
-export { getDateFact };
+async function getUser() {
+  const url = `https://randomuser.me/api/`;
+  return fetch(url);
+}
+
+export { getDateFact, getUser };

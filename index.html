@@ -4,14 +4,11 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
-
+    <title>Todo Kalender</title>
     <link rel="stylesheet" href="styles/desktop.css" />
     <link rel="stylesheet" href="styles/tablet.css" />
     <link rel="stylesheet" href="styles/mobile.css" />
-
     <script type="module" defer src="main.js"></script>
-
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css"
@@ -21,32 +18,33 @@
     />
   </head>
   <body>
+    <!-- HEADER -->
     <header>
-      <div class="text-ram">
+      <div class="text-frame">
         <p id="date-fact"></p>
       </div>
-
       <div>
-        <h1 class="titel-kalender">Todo_Kalender</h1>
+        <h1 class="title-calendar">Todo_Kalender</h1>
       </div>
-      <div class="profil-över">
-        <div class="profil-info">
-          <img id="image" src="" alt="" />
+      <div class="profile-container">
+        <div class="profile-info">
+          <img id="image" src="" alt="profile-picture" />
           <span id="name">Namn:</span>
-          <span></span>
         </div>
         <div class="button-div">
           <button id="userBtn">Byt användare</button>
         </div>
       </div>
     </header>
-
+    <!-- ASIDE -->
     <aside>
+      <!-- ASIDE CLOCK -->
       <div class="welcomeDiv">
         <p class="localTime"></p>
         <p class="dayToday"></p>
         <p class="date"></p>
       </div>
+      <!-- ASIDE TODOS -->
       <div class="todoContainer">
         <div class="todoheader">
           <h4>Lägg till ny aktivitet</h4>
@@ -63,14 +61,15 @@
             <button id="createTodo-button" type="submit">Skapa</button>
           </form>
         </div>
-
         <div class="todoheader">
           <h4 id="todo-list-header"></h4>
         </div>
         <div id="todo-list-container" class="todoListContainer"></div>
       </div>
     </aside>
+    <!-- MAIN -->
     <main>
+      <!-- CALENDAR HEADER -->
       <div class="subheading">
         <div class="month-container">
           <i class="fas fa-angle-left prev month-btn" id="prev-month"> </i>
@@ -96,8 +95,8 @@
           <h3>S</h3>
         </div>
       </div>
-      <div class="calenderHeader"></div>
-      <div id="calender" class="calenderContainer"></div>
+      <!-- CALENDAR CONTAINER -->
+      <div id="calendar" class="calendarContainer"></div>
     </main>
   </body>
 </html>

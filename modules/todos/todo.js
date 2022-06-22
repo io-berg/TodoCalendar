@@ -1,4 +1,4 @@
-import { renderCalender, getSelectedDate } from "../calender.js";
+import { renderCalendar, getSelectedDate } from "../calendar.js";
 import { renderTodoList } from "./renderTodoList.js";
 
 const todos = [];
@@ -20,7 +20,7 @@ function addTodos(event) {
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
   toggleTodoForm();
-  renderCalender();
+  renderCalendar();
 }
 
 let todoFormVisible = false;
@@ -37,7 +37,7 @@ addButton.addEventListener("click", toggleTodoForm);
 const createTodoButton = document.getElementById("todo-form");
 createTodoButton.addEventListener("submit", addTodos);
 
-function openRemoveMode(e, todoDiv) {
+function openRemoveMode(e) {
   const todoToRemove = getTodos().find(
     (todo) => todo.id == e.target.dataset.todoId
   );
@@ -45,12 +45,13 @@ function openRemoveMode(e, todoDiv) {
     removeTodo(todoToRemove);
   }
 }
+
 function removeTodo(id) {
   const todo = todos.indexOf(id);
   todos.splice(todo, 1);
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
-  renderCalender();
+  renderCalendar();
 }
 
 function getTodos() {

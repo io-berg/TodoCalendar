@@ -1,5 +1,5 @@
 import { getTodos, saveTodosToLocalStorage } from "./todo.js";
-import { renderCalender, getSelectedDate } from "../calender.js";
+import { renderCalendar, getSelectedDate } from "../calendar.js";
 import { renderTodoList } from "./renderTodoList.js";
 
 function openEditMode(e, todoDiv) {
@@ -17,11 +17,12 @@ function buildEditForm(todo) {
   const editForm = document.createElement("form");
   editForm.classList.add("edit-form");
 
-  const editElements = {};
-  editElements.title = buildTitleInput(todo.title);
-  editElements.description = buildDescriptionInput(todo.description);
-  editElements.date = buildDateInput(todo.date.toISOString().split("T")[0]);
-  editElements.buttons = buildButtons();
+  const editElements = {
+    title: buildTitleInput(todo.title),
+    description: buildDescriptionInput(todo.description),
+    date: buildDateInput(todo.date.toISOString().split("T")[0]),
+    buttons: buildButtons(),
+  };
 
   appendInputs(editForm, editElements);
 
@@ -130,7 +131,7 @@ function saveEdit(date, title, description, id, event) {
 
   saveTodosToLocalStorage();
   renderTodoList(getSelectedDate());
-  renderCalender();
+  renderCalendar();
 }
 
 export { openEditMode };
